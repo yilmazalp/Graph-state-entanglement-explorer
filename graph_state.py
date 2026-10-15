@@ -74,16 +74,20 @@ def graph_syndrome(psi, generators):
     syndromes = []
 
     for generator in generators:
-        syndromes.append(np.conj(psi) @ generator @ psi)
+        syndromes.append(int(round((np.conj(psi) @ generator @ psi).real.item(), 10)))
 
     return syndromes
 
 
-edges = [(0,1), (0,2), (2, 1)]
-print(build_adjacency(3, edges))
-print(graph_states(3, edges))
-print(generate_stabilizers(3, edges))
+if __name__ == "__main__":
+    edges = [(0,1), (0,2), (2, 1)]
+    adj_matrix = build_adjacency(3, edges)
+    psi = graph_states(3, edges)
+    generators = generate_stabilizers(3, edges)
+    syndromes = graph_syndrome(psi, generators)
 
-psi = graph_states(3, edges)
-generators = generate_stabilizers(3, edges)
-print(graph_syndrome(psi, generators))
+
+    print("Adjacency matrix: \n", adj_matrix)
+    print("Graph state: \n", psi)
+    print("Generators of the graph state: \n", generators)
+    print("Syndrome of the graph stabilizers: \n", syndromes)
