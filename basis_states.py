@@ -106,7 +106,6 @@ class Statevector:
         return self.psi
 
 
-
     def apply_cz(self, control, target):
 
         if len(self.psi) < 2:
@@ -188,9 +187,6 @@ if __name__ == "__main__":
 
     # compute the fidelity between the Bell state and |11>
     print(state.fidelity(state.basis_state([1, 1])))
-
-
-
 
 
 
