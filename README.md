@@ -7,6 +7,6 @@ In this work, we investigate how does changing a graph affect the entanglement. 
 Given a simple graph $G = (V, E)$, a graph state is defined as 
 
 $$ \ket{G} = \prod_{{i,j} \in E} CZ_{ij} \ket{+}^{\otimes n} $$ 
-
+ 
 where $n$ is the number of physical qubits. 
 
